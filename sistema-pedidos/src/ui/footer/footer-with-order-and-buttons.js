@@ -4,7 +4,6 @@ import { withRouter, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {
     Button as MaterialButton,
-    Container,
     Grid,
     Typography
 } from '@material-ui/core'

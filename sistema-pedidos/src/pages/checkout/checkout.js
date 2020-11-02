@@ -2,21 +2,23 @@ import React from 'react'
 import t from 'prop-types'
 import styled from 'styled-components'
 import { 
+    Link 
+} from 'react-router-dom'
+import { 
     Grid,
-    List,
-    ListItem,
     Paper,
     Button,
-    TextField as MaterialTextField,
-    Typography
+    TextField as MaterialTextField
  } from '@material-ui/core'
 import { 
     Content,
-    Footer,
+    OrderInfo,
     Title as UiTitle
 } from 'ui'
 import { useOrder } from 'hooks'
-import { singularOrPlural } from 'utils'
+
+import { CHECKOUT_CONFIRMATION } from 'routes'
+import FooterCheckout from 'pages/checkout/footer-checkout'
 
 function Checkout () {
     const { order } = useOrder()
@@ -49,43 +51,24 @@ function Checkout () {
                 <Grid container item xs={12} md={6} direction='column'>
                 <Title>Informações do seu pedido</Title>
                     <PaperContainer>
-                        <List>
-                            {order.pizzas.map((pizza, index)=>{
-                                const { pizzaFlavours, pizzaSize } = pizza
-                                const { name, slices, flavours } = pizzaSize
-                                return (
-                                    <ListItem key={index}>                                
-                                    <Typography>
-                                        Pizza <b>{name.toUpperCase()}</b> {'- '}
-                                        ({slices} {singularOrPlural(slices, 'fatia', 'fatias')}), {' '}
-                                        {flavours} {singularOrPlural(flavours, 'sabor', 'sabores')}, {' '}
-    
-                                        <br />
-    
-                                        {singularOrPlural(pizzaFlavours.length, 'no sabor', 'nos sabores')}, {' '}
-                                        <b>{pizzaFlavours.map(({name})=> name.name).join(', ')}</b>
-                                    </Typography>
-                                </ListItem>
-                                )
-                            })}
-                        </List>
+                        <OrderInfo />
                     </PaperContainer>
                 </Grid>
             </Grid>
         </Content>
-        <Footer>
-            <Button variant='contained' color='primary'>
+        <FooterCheckout>
+            <Button 
+                variant='contained' 
+                color='primary'
+                component={Link}
+                to={CHECKOUT_CONFIRMATION}
+            >
                 Confirmar dados
             </Button>
-        </Footer>
+        </FooterCheckout>
         </>
     )
 }
-
-// const FooterContent = styled.div`
-//     display: flex;
-//     justify-content: flex-end;
-// `
 
 function TextField ({xs, autoFocus, ...props}) {
     return (
