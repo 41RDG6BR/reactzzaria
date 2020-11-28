@@ -7,10 +7,10 @@ import React, {
 import t from 'prop-types'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { LinearProgress } from '@material-ui/core'
-import firebase from 'services/firebase'
-import { useAuth } from 'hooks'
+import firebase from './services/firebase'
+import { useAuth } from './hooks'
 
-import { HOME, LOGIN } from 'routes'
+import { HOME, LOGIN } from './routes'
 
 const MainPage = lazy(()=> import('pages/main'))
 const Login = lazy(()=> import('pages/login'))

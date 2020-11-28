@@ -7,7 +7,7 @@ import {
   createMuiTheme, 
   MuiThemeProvider 
 } from '@material-ui/core'
-import { AuthProvider, OrderProvider } from 'contexts';
+import { AuthProvider, OrderProvider } from './contexts';
 import App from './app'
 
 const theme = createMuiTheme({
