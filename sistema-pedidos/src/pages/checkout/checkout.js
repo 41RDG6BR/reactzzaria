@@ -1,5 +1,4 @@
 import React from 'react'
-import t from 'prop-types'
 import styled from 'styled-components'
 import { 
     Link 
@@ -8,7 +7,6 @@ import {
     Grid,
     Paper,
     Button,
-    TextField as MaterialTextField
  } from '@material-ui/core'
 import { 
     Content,
