@@ -12,7 +12,7 @@ import {
     H3, 
     H4, 
     PizzasGrid
-} from 'ui'
+} from '../../ui'
 import { singularOrPlural } from '../../utils'
 import { AuthContext } from '../../contexts/auth'
 // import pizzasSizes from 'fake-data/pizzas-sizes'

@@ -15,7 +15,7 @@ import {
     H4,
     H6,
     OrderInfo
-} from 'ui'
+} from '../../ui'
 import { useAuth, useOrder } from '../../hooks'
 import FooterCheckout from '../checkout/footer-checkout'
 

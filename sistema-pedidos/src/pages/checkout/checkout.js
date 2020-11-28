@@ -14,8 +14,8 @@ import {
     Content,
     OrderInfo,
     Title as UiTitle
-} from 'ui'
-import FooterCheckout from 'pages/checkout/footer-checkout'
+} from '../../ui'
+import FooterCheckout from '../checkout/footer-checkout'
 import FormAddress from './form-address'
 // import TextField from './text-field'
 import { CHECKOUT_CONFIRMATION } from '../../routes'

@@ -11,7 +11,7 @@ import {
     HeaderContent,
     H4,
     Footer
-} from 'ui'
+} from '../../ui'
 import { HOME, CHECKOUT } from '../../routes'
 import { useOrder } from '../../hooks'
 

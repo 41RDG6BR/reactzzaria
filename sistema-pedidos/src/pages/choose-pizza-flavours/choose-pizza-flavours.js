@@ -16,7 +16,7 @@ import {
     HeaderContent, 
     PizzasGrid,
     Footer 
-} from 'ui'
+} from '../../ui'
 import { singularOrPlural, toMoney } from '../../utils'
 
 import { HOME, CHOOSE_PIZZA_QUANTITY } from '../../routes'
