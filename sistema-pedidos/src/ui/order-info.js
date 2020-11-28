@@ -8,8 +8,8 @@ import {
     Typography
  } from '@material-ui/core'
 import { Close } from '@material-ui/icons'
-import { useOrder } from 'hooks'
-import { singularOrPlural } from 'utils'
+import { useOrder } from '../hooks'
+import { singularOrPlural } from '../utils'
 
 function OrderInfo ({ showOptions }) {
     const { order, removePizzaFromOrder } = useOrder()

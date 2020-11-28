@@ -14,7 +14,7 @@ import {
     H6,
     OrderInfo
 } from 'ui'
-import { useAuth, useOrder } from 'hooks'
+import { useAuth, useOrder } from '../../hooks'
 import FooterCheckout from 'pages/checkout/footer-checkout'
 import { HOME } from 'routes'
 

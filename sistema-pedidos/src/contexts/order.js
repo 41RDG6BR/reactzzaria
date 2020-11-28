@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react'
 import t from 'prop-types'
 import { uuid } from 'uuidv4'
-import firebase, { db } from 'services/firebase'
-import { useAuth } from 'hooks'
+import firebase, { db } from '../services/firebase'
+import { useAuth } from '../hooks'
 
 const OrderContext = createContext()
 

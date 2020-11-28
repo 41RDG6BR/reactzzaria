@@ -12,8 +12,8 @@ import {
     H4,
     Footer
 } from 'ui'
-import { HOME, CHECKOUT } from 'routes'
-import { useOrder } from 'hooks'
+import { HOME, CHECKOUT } from '../../routes'
+import { useOrder } from '../../hooks'
 
 function ChoosePizzaQuantity ({location}) {
     const [quantity, setQuantity] = useState(1)

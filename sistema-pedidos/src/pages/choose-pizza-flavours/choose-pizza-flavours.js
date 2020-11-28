@@ -17,10 +17,10 @@ import {
     PizzasGrid,
     Footer 
 } from 'ui'
-import { singularOrPlural, toMoney } from 'utils'
+import { singularOrPlural, toMoney } from '../../utils'
 
-import { HOME, CHOOSE_PIZZA_QUANTITY } from 'routes'
-import { useCollection } from 'hooks'
+import { HOME, CHOOSE_PIZZA_QUANTITY } from '../../routes'
+import { useCollection } from '../../hooks'
 
 const ChoosePizzaFlavours = ({ location }) => {
     const [checkboxes, setCheckboxes] = useState(() => ({}))

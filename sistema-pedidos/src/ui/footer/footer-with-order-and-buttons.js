@@ -7,8 +7,8 @@ import {
     Grid,
     Typography
 } from '@material-ui/core'
-import { useAuth } from 'hooks'
-import { singularOrPlural } from 'utils'
+import { useAuth } from '../../hooks'
+import { singularOrPlural } from '../../utils'
 
 function FooterWithOrderAndButtons ({ buttons, history, location }) {
     const { userInfo } = useAuth()

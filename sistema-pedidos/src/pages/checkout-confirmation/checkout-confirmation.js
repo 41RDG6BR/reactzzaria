@@ -16,8 +16,8 @@ import {
     H6,
     OrderInfo
 } from 'ui'
-import { useAuth, useOrder } from 'hooks'
-import FooterCheckout from 'pages/checkout/footer-checkout'
+import { useAuth, useOrder } from '../../hooks'
+import FooterCheckout from '../checkout/footer-checkout'
 
 
 function CheckoutConfirmation () {

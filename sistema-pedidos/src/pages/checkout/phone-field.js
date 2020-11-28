@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react'
 import { 
     TextField
  } from '@material-ui/core'
-//  import { useOrder } from 'hooks'
 
 function PhoneField ({ onUpdate }) {
     const [phone, setPhone] = useState('')
