@@ -12,8 +12,8 @@ import { useAuth } from './hooks'
 
 import { HOME, LOGIN } from './routes'
 
-const MainPage = lazy(()=> import('pages/main'))
-const Login = lazy(()=> import('pages/login'))
+const MainPage = lazy(()=> import('./pages/main'))
+const Login = lazy(()=> import('./pages/login'))
 
 function App ({ location }) {
   const { userInfo, setUserInfo } = useAuth()

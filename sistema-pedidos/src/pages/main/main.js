@@ -1,26 +1,26 @@
 import React, { Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Header from './header'
 import { withStyles } from '@material-ui/core'
-import * as routes from 'routes'
+import Header from './header'
+import * as routes from './routes'
 
 const ChoosePizzaSize = React.lazy(
-    ()=> import('pages/choose-pizza-size')
+    ()=> import('./choose-pizza-size')
 )
 const ChoosePizzaFlavours = React.lazy(
-    ()=> import('pages/choose-pizza-flavours')
+    ()=> import('./choose-pizza-flavours')
 )
 const ChoosePizzaQuantity = React.lazy(
-    ()=> import('pages/choose-pizza-quantity')
+    ()=> import('./choose-pizza-quantity')
 )
 const Checkout = React.lazy(
-    ()=> import('pages/checkout')
+    ()=> import('./checkout')
 )
 const CheckoutConfirmation = React.lazy(
-    ()=> import('pages/checkout-confirmation')
+    ()=> import('./checkout-confirmation')
 )
 const CheckoutSuccess = React.lazy(
-    ()=> import('pages/checkout/checkout-success')
+    ()=> import('./checkout/checkout-success')
 )
 
 const Main = () => (
