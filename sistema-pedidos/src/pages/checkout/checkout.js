@@ -15,7 +15,6 @@ import {
 } from '../../ui'
 import FooterCheckout from '../checkout/footer-checkout'
 import FormAddress from './form-address'
-// import TextField from './text-field'
 import { CHECKOUT_CONFIRMATION } from '../../routes'
 import { useOrder } from '../../hooks'
 import PhoneField from './phone-field'
