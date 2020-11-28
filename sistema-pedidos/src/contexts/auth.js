@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useState } from 'react'
 import t from 'prop-types'
-import firebase from /firebase'
+import firebase from '../services/firebase'
 
 const AuthContext = createContext()
 
