@@ -14,11 +14,13 @@ import {
     H6,
     OrderInfo
 } from 'ui'
-import { useAuth } from 'hooks'
+import { useAuth, useOrder } from 'hooks'
 import FooterCheckout from 'pages/checkout/footer-checkout'
 import { HOME } from 'routes'
+
 function CheckoutSuccess () {
     const { userInfo } = useAuth()
+    const { order } = useOrder()
 
     return (
         <>

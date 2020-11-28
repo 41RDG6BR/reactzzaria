@@ -15,13 +15,15 @@ import {
     OrderInfo,
     Title as UiTitle
 } from 'ui'
-import { useOrder } from 'hooks'
-
-import { CHECKOUT_CONFIRMATION } from 'routes'
 import FooterCheckout from 'pages/checkout/footer-checkout'
+import FormAddress from './form-address'
+import TextField from './text-field'
+import { CHECKOUT_CONFIRMATION } from 'routes'
+import { useOrder } from 'hooks'
+import PhoneField from './phone-field'
 
 function Checkout () {
-    const { order } = useOrder()
+    const { order, addAddress, addPhone } = useOrder()
     console.log('order', order)
     return (
         <>
@@ -30,28 +32,20 @@ function Checkout () {
                 <Grid item xs={12} md={6}>
                     <Title>Qual o endereço para entrega?</Title>
                     <PaperContainer>
-                        <Grid container spacing={2}>
-                                <TextField label='Cep' xs={4} autoFocus />
-                                <Grid item xs={8} />
-                                <TextField label='Rua' xs={9} />     
-                                <TextField label='Numero' xs={3} />
-                                <TextField label='Complemento' xs={12} />
-                                <TextField label='Cidade' xs={9} />
-                                <TextField label='Estado' xs={3} />
-                            
-                        </Grid>
+                        <FormAddress onUpdate={addAddress} />
+                        
                     </PaperContainer>
 
                     <Title>Qual o seu telefone?</Title>
                     <PaperContainer>
-                        <TextField label='Telefone' xs={4} /> 
+                        <PhoneField onUpdate={addPhone} />
                     </PaperContainer>
                 </Grid>
 
                 <Grid container item xs={12} md={6} direction='column'>
                 <Title>Informações do seu pedido</Title>
                     <PaperContainer>
-                        <OrderInfo />
+                        <OrderInfo showOptions />
                     </PaperContainer>
                 </Grid>
             </Grid>
@@ -68,26 +62,6 @@ function Checkout () {
         </FooterCheckout>
         </>
     )
-}
-
-function TextField ({xs, autoFocus, ...props}) {
-    return (
-        <Grid item xs={xs}>
-            <MaterialTextField 
-                fullWidth
-                variant='outlined' 
-                inputProps={{
-                    autoFocus
-                }}
-                {...props} 
-            />
-        </Grid>
-    )
-}
-
-TextField.propTypes ={
-    autoFocus: t.bool,
-    xs: t.number
 }
 
 const Title = styled(UiTitle)`

@@ -16,11 +16,13 @@ import {
     H6,
     OrderInfo
 } from 'ui'
-import { useAuth } from 'hooks'
+import { useAuth, useOrder } from 'hooks'
 import FooterCheckout from 'pages/checkout/footer-checkout'
+
 
 function CheckoutConfirmation () {
     const { userInfo } = useAuth()
+    const { order, sendOrder } = useOrder()
 
     return (
         <>
@@ -41,14 +43,20 @@ function CheckoutConfirmation () {
                     <H6> Endereço para entrega: </H6>
                     
                     <Typography> 
-                        Rua, cep ... 
+                        {order.address.address},
+                        {' n'} {order.address.number},
+                        {' '} {order.address.complement}<br />
+                        Bairro: {order.address.district}<br />
+                        CEP: {order.address.code}<br />
+                        {order.address.city}/{order.address.state}
+
                     </Typography>
 
                         <Divider />
 
                     <H6> Telefone </H6>
                     <Typography> 
-                       (41)33333333
+                       {order.phone}
                     </Typography>
 
                 </PaperContainer>
@@ -57,7 +65,9 @@ function CheckoutConfirmation () {
         <FooterCheckout justifyContent='center'>
             <Button variant='contained' color='primary' size='large'
              component={Link}
-             to={CHECKOUT_SUCCESS}>
+             to={CHECKOUT_SUCCESS}
+             onClick={sendOrder}
+             >
                 Tudo certo
             </Button>
         </FooterCheckout>

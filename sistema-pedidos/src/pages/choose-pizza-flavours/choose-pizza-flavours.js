@@ -19,16 +19,26 @@ import {
 } from 'ui'
 import { singularOrPlural, toMoney } from 'utils'
 
-import pizzaFlavours from 'fake-data/pizzas-flavours'
 import { HOME, CHOOSE_PIZZA_QUANTITY } from 'routes'
+import { useCollection } from 'hooks'
 
 const ChoosePizzaFlavours = ({ location }) => {
     const [checkboxes, setCheckboxes] = useState(() => ({}))
+    // const [pizzasFlavours, setPizzaFlavours] = useState([])
+    const pizzasFlavours = useCollection('pizzasFlavours')
 
     console.log('Log from choose pizza flavours', location)
 
     if(!location.state) {
         return <Redirect to={HOME} />
+    }
+
+    if(!pizzasFlavours) {
+        return 'Carregando sabores...'
+    }
+
+    if(pizzasFlavours.length === 0){
+        return 'Não há dados.'
     }
 
     const { flavours, id, pizzaSize } = location.state
@@ -61,7 +71,7 @@ const ChoosePizzaFlavours = ({ location }) => {
                 </HeaderContent>
 
                 <PizzasGrid>
-                    {pizzaFlavours.map((pizza)=>(
+                    {pizzasFlavours.map((pizza)=>(
                         <Grid item key={pizza.id} xs>
                             <Card checked={!!checkboxes[pizza.id]}>
                                 <Label>
@@ -94,7 +104,10 @@ const ChoosePizzaFlavours = ({ location }) => {
                             pathname: CHOOSE_PIZZA_QUANTITY,
                             state: {
                                 ...location.state,
-                                pizzaFlavours: getFlavoursNameAndId(checkboxes),
+                                pizzaFlavours: getFlavoursNameAndId({
+                                    checkboxes, 
+                                    pizzasFlavours
+                                }),
                                 pizzaSize: pizzaSize,
                             }
                         },
@@ -115,12 +128,12 @@ function checkboxesChecked (checkboxes) {
     return Object.values(checkboxes).filter(Boolean)
 }
 
-function getFlavoursNameAndId (checkboxes) {
+function getFlavoursNameAndId ({checkboxes, pizzasFlavours}) {
     return Object.entries(checkboxes)
     .filter(([, value]) => !!value)
     .map(([id]) => ({
         id,
-        name: pizzaFlavours.find((flavours) => flavours.id === id)
+        name: pizzasFlavours.find((flavour) => flavour.id === id)
     }))
 }
 

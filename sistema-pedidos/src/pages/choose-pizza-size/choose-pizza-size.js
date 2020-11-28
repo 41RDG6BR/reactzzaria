@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import { 
     Card,
@@ -15,13 +15,26 @@ import {
 } from 'ui'
 import { singularOrPlural } from 'utils'
 import { AuthContext } from 'contexts/auth'
-import pizzaSizes from 'fake-data/pizzas-sizes'
+// import pizzasSizes from 'fake-data/pizzas-sizes'
 
 import { CHOOSE_PIZZA_FLAVOURS } from 'routes'
+// import { db } from 'services/firebase'
+import { useCollection } from 'hooks'
 
 const ChoosePizzaSize = () => {
     const { userInfo } = useContext(AuthContext)
+    // const [pizzasSizes, setPizzaSizes] = useState([])
+    const pizzasSizes = useCollection('pizzasSizes')
     const userName = userInfo.user.displayName.split(' ')[0]
+
+    if(!pizzasSizes) {
+        return 'Carregando tamanhos...'
+    }
+
+    if(pizzasSizes.length === 0){
+        return 'Não há dados.'
+    }
+
     return (
         <Content>
             <Grid container direction='column' alignItems='center'>
@@ -35,7 +48,7 @@ const ChoosePizzaSize = () => {
             </Grid>
 
             <PizzasGrid>
-                {pizzaSizes.map((pizza)=>(
+                {pizzasSizes.map((pizza)=>(
                     <Grid item key={pizza.id} xs>
                         <Card>
                             <CardLink to={{
