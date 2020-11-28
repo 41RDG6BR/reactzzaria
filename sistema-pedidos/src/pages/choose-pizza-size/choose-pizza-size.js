@@ -15,10 +15,8 @@ import {
 } from '../../ui'
 import { singularOrPlural } from '../../utils'
 import { AuthContext } from '../../contexts/auth'
-// import pizzasSizes from 'fake-data/pizzas-sizes'
 
 import { CHOOSE_PIZZA_FLAVOURS } from '../../routes'
-// import { db } from 'services/firebase'
 import { useCollection } from '../../hooks'
 
 const ChoosePizzaSize = () => {
