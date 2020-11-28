@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Button, Grid } from '@material-ui/core'
 import logo from './logo.png'
 
-import { AuthContext } from 'contexts/auth'
+import { AuthContext } from '../../contexts/auth'
 
 function Login() {
     const { login } = useContext(AuthContext)

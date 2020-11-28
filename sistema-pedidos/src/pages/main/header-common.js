@@ -7,7 +7,7 @@ import {
     MenuItem
 } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons'
-import { AuthContext } from 'contexts/auth'
+import { AuthContext } from '../../contexts/auth'
 
 function HeaderCommon () {
     const [anchorElement, setAnchorElement] = useState(null)

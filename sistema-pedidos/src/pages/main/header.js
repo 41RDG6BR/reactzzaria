@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Route, Switch } from 'react-router-dom'
 import  HeaderCommon from './header-common'
 import HeaderCheckout from './header-checkout'
-import { CHECKOUT } from 'routes'
+import { CHECKOUT } from '../../routes'
 
 import { 
     AppBar, 
