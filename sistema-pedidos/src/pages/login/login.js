@@ -25,10 +25,11 @@ function Login() {
                 </Grid>
                 <Grid item xs={12} container justify='center'>                      
                         <FaceBookButton 
+                            color="secondary"
                             variant="contained" 
                             fullWidth
                             onClick={loginGoogle}>
-                                Entrar com sua conta google
+                                Entrar com google
                         </FaceBookButton>
                 </Grid>
             </Grid>
