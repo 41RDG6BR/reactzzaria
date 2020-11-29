@@ -10,8 +10,13 @@ function AuthProvider ({children}) {
         user: null
     })
 
-    const login = useCallback(()=>{
+    const loginGit = useCallback(()=>{
         const provider = new firebase.auth.GithubAuthProvider()
+        firebase.auth().signInWithRedirect(provider)
+    }, [])
+
+    const loginGoogle = useCallback(()=>{
+        const provider = new firebase.auth.GoogleAuthProvider()
         firebase.auth().signInWithRedirect(provider)
     }, [])
 
@@ -27,7 +32,8 @@ function AuthProvider ({children}) {
 
     return (
         <AuthContext.Provider value={{
-            login,
+            loginGit,
+            loginGoogle,
             logout,
             userInfo,
             setUserInfo
