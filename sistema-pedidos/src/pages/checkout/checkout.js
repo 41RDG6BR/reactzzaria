@@ -20,8 +20,7 @@ import { useOrder } from '../../hooks'
 import PhoneField from './phone-field'
 
 function Checkout () {
-    const { order, addAddress, addPhone } = useOrder()
-    console.log('order', order)
+    const { addAddress, addPhone } = useOrder()
     return (
         <>
         <Content>
@@ -30,7 +29,6 @@ function Checkout () {
                     <Title>Qual o endereço para entrega?</Title>
                     <PaperContainer>
                         <FormAddress onUpdate={addAddress} />
-                        
                     </PaperContainer>
 
                     <Title>Qual o seu telefone?</Title>

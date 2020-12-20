@@ -14,12 +14,13 @@ import {
     H6,
     OrderInfo
 } from '../../ui'
-import { useAuth } from '../../hooks'
+import { useAuth, useOrder } from '../../hooks'
 import FooterCheckout from '../checkout/footer-checkout'
 import { HOME } from '../../routes'
 
 function CheckoutSuccess () {
     const { userInfo } = useAuth()
+    const { order } = useOrder()
 
     return (
         <>
@@ -43,14 +44,20 @@ function CheckoutSuccess () {
                     <H6> Endereço para entrega: </H6>
                     
                     <Typography> 
-                        Rua, cep ... 
+                        {order.address.address}
+                        {' n'} {order.address.number}
+                        {' '} {order.address.complement}<br />
+                        Bairro: {order.address.district}<br />
+                        CEP: {order.address.code}<br />
+                        {order.address.city}/{order.address.state}
+
                     </Typography>
 
                         <Divider />
 
                     <H6> Telefone </H6>
                     <Typography> 
-                       (41)33333333
+                       {order.phone}
                     </Typography>
 
                 </PaperContainer>

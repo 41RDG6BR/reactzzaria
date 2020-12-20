@@ -30,23 +30,23 @@ function OrderProvider ({children}) {
 
     function removePizzaFromOrder (id) {
         console.log('removepizza', id)
-        addPizza((pizzas) => pizzas.filter(p => p.id !== id))
+        // addPizza((pizzas) => pizzas.filter(p => p.id !== id))
     }
 
     async function sendOrder () {     
-        console.log('send order')
+        // console.log('send order', pizzas)
         try {
             await db.collection('orders').add({
                 userId: userInfo.user.uid,
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 address,
                 phone,
-                // pizzas: pizzas.map(pizza => ({
-                //     size: pizza.pizzaSizes,
-                //     flavours: pizza.pizzaFlavours,
-                //     quantity: pizza.quantity
+                pizzas: pizzas.map(pizza => ({
+                    size: pizza.pizzaSize,
+                    flavours: pizza.pizzaFlavours,
+                    quantity: pizza.quantity
 
-                // }))
+                }))
             })
         } catch (e) {
             console.log('erro ao salvar o pedido')

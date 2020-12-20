@@ -24,7 +24,6 @@ import { useCollection } from '../../hooks'
 
 const ChoosePizzaFlavours = ({ location }) => {
     const [checkboxes, setCheckboxes] = useState(() => ({}))
-    // const [pizzasFlavours, setPizzaFlavours] = useState([])
     const pizzasFlavours = useCollection('pizzasFlavours')
 
     console.log('Log from choose pizza flavours', location)

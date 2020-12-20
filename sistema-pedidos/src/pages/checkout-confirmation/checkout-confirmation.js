@@ -23,7 +23,6 @@ import FooterCheckout from '../checkout/footer-checkout'
 function CheckoutConfirmation () {
     const { userInfo } = useAuth()
     const { order, sendOrder } = useOrder()
-
     return (
         <>
         <Content>
@@ -43,8 +42,8 @@ function CheckoutConfirmation () {
                     <H6> Endereço para entrega: </H6>
                     
                     <Typography> 
-                        {order.address.address},
-                        {' n'} {order.address.number},
+                        {order.address.address}
+                        {' n'} {order.address.number}
                         {' '} {order.address.complement}<br />
                         Bairro: {order.address.district}<br />
                         CEP: {order.address.code}<br />

@@ -4,6 +4,7 @@ import {
     Grid
 } from '@material-ui/core'
 import TextField from './text-field'
+import { useOrder } from '../../hooks'
 
 function FormAddress ({ onUpdate = () => {} }) {
     const [cep, setCep] = useState('')
@@ -11,11 +12,11 @@ function FormAddress ({ onUpdate = () => {} }) {
     const [addressState, dispatch] = useReducer(reducer, initialState)
     const numberField = useRef()
     const addressField = useRef()
-    // const { addAddress } = useOrder()
+    const { addAdress } = useOrder()
 
     useEffect(() => {
-        onUpdate(addressState)
-    }, [addressState, onUpdate])
+        addAdress(addressState)
+    }, [addressState, addAdress])
 
     useEffect(() => {
         async function fetchAddress () {
@@ -76,7 +77,7 @@ function FormAddress ({ onUpdate = () => {} }) {
             type: 'UPDATE_FIELD',
             payload: { name, value }
         })
-        // console.log('handleChangeField:', e.target.name, e.target.value)
+        console.log('handleChangeField:', e.target.name, e.target.value)
     }
 
     return (

@@ -15,10 +15,9 @@ import {
 import { HOME, CHECKOUT } from '../../routes'
 import { useOrder } from '../../hooks'
 
-function ChoosePizzaQuantity ({location}) {
+function ChoosePizzaQuantity ({ location }) {
     const [quantity, setQuantity] = useState(1)
     const { addPizzaToOrder } = useOrder()
-
     if(!location.state){
         return <Redirect to={HOME} />
     }
@@ -33,13 +32,12 @@ function ChoosePizzaQuantity ({location}) {
     function addPizza () {
         addPizzaToOrder({
             ...location.state,
-            // size: location.state.pizzaSize.id,
-            // flavours: location.state.pizzaFlavours.map(f => f.id),
+            size: location.state.pizzaSize.id,
+            flavours: location.state.pizzaFlavours.map(f => f.id),
             quantity
         })
     }
 
-//  console.log("location from choose pizza quantity", location.state)
     return (
         <>
             <Content>
