@@ -12,12 +12,12 @@ function AuthProvider ({children}) {
 
     const loginGit = useCallback(()=>{
         const provider = new firebase.auth.GithubAuthProvider()
-        firebase.auth().signInWithRedirect(provider)
+        firebase.auth().signInWithPopup(provider)
     }, [])
 
     const loginGoogle = useCallback(()=>{
         const provider = new firebase.auth.GoogleAuthProvider()
-        firebase.auth().signInWithRedirect(provider)
+        firebase.auth().signInWithPopup(provider)
     }, [])
 
     const logout = useCallback(() => {
