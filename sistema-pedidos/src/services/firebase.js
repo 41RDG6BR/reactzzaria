@@ -3,13 +3,13 @@ import 'firebase/auth'
 import 'firebase/firestore'
 
 const config = {
-    apiKey: "AIzaSyC97wtrMNKy39CAo88rRpkfUn93_ae3MX8",
-    authDomain: "rosacor-41.firebaseapp.com",
-    projectId: "rosacor-41",
-    storageBucket: "rosacor-41.appspot.com",
-    messagingSenderId: "1050363860573",
-    appId: "1:1050363860573:web:04709393df240ceee5dfb4",
-    measurementId: "G-J8SJ9YH9E4"
+    apiKey: 'AIzaSyC97wtrMNKy39CAo88rRpkfUn93_ae3MX8',
+    authDomain: 'rosacor-41.firebaseapp.com',
+    projectId: 'rosacor-41',
+    storageBucket: 'rosacor-41.appspot.com',
+    messagingSenderId: '1050363860573',
+    appId: '1:1050363860573:web:04709393df240ceee5dfb4',
+    measurementId: 'G-J8SJ9YH9E4'
     // apiKey: process.env.REACT_APP_API_KEY,
     // authDomain: process.env.REACT_APP_AUTH_DOMAIN ,
     // databaseURL: process.env.REACT_APP_DATABASE_URL,
