@@ -13,6 +13,9 @@ import App from './app'
 const theme = createMuiTheme({
   typegraphy: {
     useNextVariants: true
+  },
+  extend: {
+    drawerWidth: 280
   }
 })
 
