@@ -1,6 +1,6 @@
-import React, { Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import styled from 'styled-components'
-import { Switch, Route } from 'react-router-dom'
+import { Link, Switch, Route } from 'react-router-dom'
 import { 
     Divider,
     Drawer as MaterialDrawer,
@@ -9,6 +9,11 @@ import {
     ListItemText,
     Typography
  } from '@material-ui/core'
+ import * as routes from '../../routes'
+
+ const Orders = lazy(()=> import('../orders'))
+ const PizzasFlavours = lazy(()=> import('../pizzas-flavours'))
+ const PizzasSizes = lazy(()=> import('../pizzas-sizes'))
 
 const Main = () => (
     <>
@@ -27,7 +32,12 @@ const Main = () => (
 
     <List>
         {menuItems.map(item => (
-            <ListItem button>
+            <ListItem 
+                key ={item.label} 
+                button
+                component={Link}
+                to={item.link}
+            >
                 <ListItemText>
                     {item.label}
                 </ListItemText>
@@ -39,10 +49,11 @@ const Main = () => (
     <Content>
         <Suspense fallback='Loading...'>
             <Switch>
-
-                <Route>
-                    <h1>main</h1>
-                </Route>
+                {menuItems.map(item => (            
+                    <Route key={item.link} path={item.link} exact={item.exact}>
+                        <item.component />
+                    </Route>
+                ))}
             </Switch>
         </Suspense>        
     </Content>
@@ -51,14 +62,21 @@ const Main = () => (
 
 const menuItems = [
     {
-        label: 'Pedidos'
+        label: 'Pedidos',
+        link: routes.HOME,
+        component: Orders,
+        exact: true
     },
     {
-        label: 'Tamanhos de pizzas'
+        label: 'Tamanhos de pizzas',
+        link: routes.PIZZAS_SIZES,
+        component: PizzasSizes,
     },
     {
-        label: 'Sabores de pizzas'
-    },
+        label: 'Sabores de pizzas',
+        link: routes.PIZZAS_FLAVOURS,
+        component: PizzasFlavours,
+    }
 ]
 
 const Drawer = styled(MaterialDrawer)`
