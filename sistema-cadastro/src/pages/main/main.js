@@ -18,7 +18,7 @@ import {
 const Main = () => {
 
     const { pathname } = useLocation();
-
+    console.log("pathname from main", pathname)
     return(
         <>
             <Drawer variant='permanent'>
@@ -39,7 +39,7 @@ const Main = () => {
                     <ListItem 
                     key ={item.label} 
                     button
-                    selected={pathname === item.link}
+                    selected={pathname === item.link}//selected, retorna prop boolean, se true, mantem o list item selecionado
                     component={Link}
                     to={item.link}
                     >
